@@ -2,6 +2,7 @@ package com.gabriel.avaliacao.entidade.dto;
 
 import com.gabriel.avaliacao.entidade.Candidato;
 import com.gabriel.avaliacao.entidade.Skill;
+import com.gabriel.avaliacao.service.EmailValidator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +24,7 @@ public class CandidatoDTO {
     private String nome;
     @NotNull
     @Size(min = 1)
-    @Pattern(regexp = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-z]+")
+    @Pattern(regexp = EmailValidator.EMAIL_PATTERN)
     private String email;
     private List<SkillDTO> skills = new ArrayList<>();
 

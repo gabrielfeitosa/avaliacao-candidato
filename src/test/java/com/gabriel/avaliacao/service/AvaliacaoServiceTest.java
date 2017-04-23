@@ -1,16 +1,11 @@
 package com.gabriel.avaliacao.service;
 
-import com.gabriel.avaliacao.controller.AvaliacaoController;
 import com.gabriel.avaliacao.entidade.*;
-import com.gabriel.avaliacao.service.perfil.PerfilBackend;
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.hamcrest.CoreMatchers.containsString;
@@ -52,7 +47,7 @@ public class AvaliacaoServiceTest {
     @Test
     public void candidatoDeveTerPerfilGenericoQuandoGrauDeConhecimentoMenorQueSete() {
         Candidato candidato = new Candidato("Genérico", "generico@test.com");
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_IOS, 4));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.IOS, 4));
         doNothing().when(emailService).enviar(any(Email.class));
         avaliacaoService.avaliar(candidato);
         ArgumentCaptor<Email> captor = ArgumentCaptor.forClass(Email.class);
@@ -71,7 +66,7 @@ public class AvaliacaoServiceTest {
         candidato.adicionarSkill(new Skill(SkillTipoEnum.CSS, 9));
         candidato.adicionarSkill(new Skill(SkillTipoEnum.JAVASCRIPT, 8));
 
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_ANDROID, 10));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.ANDROID, 10));
 
         doNothing().when(emailService).enviar(any(Email.class));
         avaliacaoService.avaliar(candidato);

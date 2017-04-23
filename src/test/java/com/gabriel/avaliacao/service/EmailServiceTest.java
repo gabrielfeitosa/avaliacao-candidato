@@ -31,11 +31,12 @@ public class EmailServiceTest {
     @Mock
     private JavaMailSender javaMailSender;
     private final String emailFrom = "teste@teste.com";
+    private final boolean habilitar = true;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        emailService = new EmailService(javaMailSender, emailFrom);
+        emailService = new EmailService(javaMailSender, emailFrom, habilitar);
     }
 
     @Test

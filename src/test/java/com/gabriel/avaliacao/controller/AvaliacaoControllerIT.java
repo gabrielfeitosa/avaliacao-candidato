@@ -1,10 +1,14 @@
 package com.gabriel.avaliacao.controller;
 
 import com.gabriel.avaliacao.entidade.Candidato;
+import com.gabriel.avaliacao.entidade.Email;
 import com.gabriel.avaliacao.entidade.Skill;
 import com.gabriel.avaliacao.entidade.SkillTipoEnum;
+import com.gabriel.avaliacao.entidade.dto.MensagemDTO;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
@@ -31,6 +35,9 @@ public class AvaliacaoControllerIT {
 
     private URL base;
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Autowired
     private TestRestTemplate template;
 
@@ -41,12 +48,29 @@ public class AvaliacaoControllerIT {
 
     @Test
     public void deveAvaliarCandidato(){
-        Candidato candidato = new Candidato("teste","teste@teste.com");
+        Candidato candidato = new Candidato("teste","gabfeitosa@gmail.com");
         for(SkillTipoEnum tipo: SkillTipoEnum.values()){
             candidato.adicionarSkill(new Skill(tipo, 10));
         }
-        ResponseEntity<String> response = template.postForEntity(base.toString(), candidato, String.class);
+        ResponseEntity<MensagemDTO> response = template.postForEntity(base.toString(), candidato, MensagemDTO.class);
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-        assertThat(response.getBody(), equalTo(AvaliacaoController.MENSAGEM_SUCESSO));
+        assertThat(response.getBody().getMensagem(), equalTo(AvaliacaoController.MENSAGEM_SUCESSO));
     }
+
+    @Test
+    public void deveLancarExcecaoQuandoNomeVazio(){
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(Candidato.MENSAGEM_VALIDACAO_NOME);
+        Candidato candidato = new Candidato("","");
+        template.postForEntity(base.toString(), candidato, MensagemDTO.class);
+    }
+
+    @Test
+    public void deveLancarExcecaoQuandoEmailVazio(){
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(Candidato.MENSAGEM_VALIDACAO_EMAIL);
+        Candidato candidato = new Candidato("Teste","");
+        template.postForEntity(base.toString(), candidato, MensagemDTO.class);
+    }
+
 }

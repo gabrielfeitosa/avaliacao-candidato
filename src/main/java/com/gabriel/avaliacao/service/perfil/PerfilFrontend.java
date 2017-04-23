@@ -1,6 +1,5 @@
 package com.gabriel.avaliacao.service.perfil;
 
-import com.gabriel.avaliacao.entidade.Candidato;
 import com.gabriel.avaliacao.entidade.PerfilEnum;
 import com.gabriel.avaliacao.entidade.Skill;
 import com.gabriel.avaliacao.entidade.SkillTipoEnum;

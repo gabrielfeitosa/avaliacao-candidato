@@ -1,6 +1,5 @@
 package com.gabriel.avaliacao.service.perfil;
 
-import com.gabriel.avaliacao.entidade.Candidato;
 import com.gabriel.avaliacao.entidade.PerfilEnum;
 import com.gabriel.avaliacao.entidade.Skill;
 import com.gabriel.avaliacao.entidade.SkillTipoEnum;
@@ -15,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class PerfilMobile extends PerfilAbstract{
 
-    public static final List<SkillTipoEnum> SKILLS = Arrays.asList(SkillTipoEnum.DESENVOLVIMENTO_ANDROID, SkillTipoEnum.DESENVOLVIMENTO_IOS);
+    public static final List<SkillTipoEnum> SKILLS = Arrays.asList(SkillTipoEnum.ANDROID, SkillTipoEnum.IOS);
 
     @Override
     protected boolean verificar(Stream<Skill> skillStream) {

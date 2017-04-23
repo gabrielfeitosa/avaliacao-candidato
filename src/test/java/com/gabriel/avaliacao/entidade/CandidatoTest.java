@@ -48,6 +48,14 @@ public class CandidatoTest {
     }
 
     @Test
+    public void deveLancarExcecaoQuandoEmailInvalido(){
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(Candidato.MENSAGEM_FORMATO_EMAIL);
+        new Candidato("Teste","teste");
+    }
+
+
+    @Test
     public void deveAdicionarSkills(){
         Candidato candidato = new Candidato("Teste", "teste@teste.com");
         Skill css = new Skill(SkillTipoEnum.CSS, 8);

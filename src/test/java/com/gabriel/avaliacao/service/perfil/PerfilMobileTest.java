@@ -16,8 +16,8 @@ public class PerfilMobileTest {
     @Test
     public void deveTerOPerfil(){
         Candidato candidato = new Candidato("Teste", "teste@teste.com");
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_ANDROID, 10));
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_IOS, 6));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.ANDROID, 10));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.IOS, 6));
         candidato.adicionarSkill(new Skill(SkillTipoEnum.CSS, 9));
         Assert.assertTrue(perfil.validar(candidato));
     }
@@ -25,8 +25,8 @@ public class PerfilMobileTest {
     @Test
     public void naoDeveTerOPerfil(){
         Candidato candidato = new Candidato("Teste", "teste@teste.com");
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_ANDROID, 5));
-        candidato.adicionarSkill(new Skill(SkillTipoEnum.DESENVOLVIMENTO_IOS, 6));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.ANDROID, 5));
+        candidato.adicionarSkill(new Skill(SkillTipoEnum.IOS, 6));
         Assert.assertFalse(perfil.validar(candidato));
     }
 }

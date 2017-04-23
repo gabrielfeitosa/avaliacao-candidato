@@ -12,8 +12,6 @@ import static org.junit.Assert.assertNotNull;
  */
 public class EmailTest {
 
-    private Email email;
-
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 

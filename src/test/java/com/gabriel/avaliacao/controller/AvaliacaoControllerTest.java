@@ -2,6 +2,7 @@ package com.gabriel.avaliacao.controller;
 
 import com.gabriel.avaliacao.entidade.Candidato;
 import com.gabriel.avaliacao.entidade.dto.CandidatoDTO;
+import com.gabriel.avaliacao.entidade.dto.MensagemDTO;
 import com.gabriel.avaliacao.service.AvaliacaoService;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,8 +36,9 @@ public class AvaliacaoControllerTest {
         candidato.setNome("Teste");
         candidato.setEmail("teste@teste.com");
         doNothing().when(avaliacaoService).avaliar(any());
-        ResponseEntity resposta = avaliacaoController.avaliar(candidato);
+        ResponseEntity<MensagemDTO> resposta = avaliacaoController.avaliar(candidato);
         assertEquals(HttpStatus.OK, resposta.getStatusCode());
+        assertEquals(resposta.getBody().getMensagem(), AvaliacaoController.MENSAGEM_SUCESSO);
         verify(avaliacaoService).avaliar(any(Candidato.class));
     }
 

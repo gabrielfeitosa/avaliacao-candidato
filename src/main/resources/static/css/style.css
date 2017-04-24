@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'PT Sans Narrow';
+    src: url(../fonts/PT_Sans-Narrow-Web-Regular.ttf);
+}
+
 body {
-    background-color: #EEEEEE;
+    background-color: #0192f6;
+}
+
+.titulo{
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .painel {
@@ -12,6 +21,11 @@ body {
     margin: 0;
     padding-bottom: 20px;
     text-align: center;
+    color: #0192f6
+}
+
+legend {
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .no-border {

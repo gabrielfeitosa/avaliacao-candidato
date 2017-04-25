@@ -19,7 +19,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="painel" ng-controller="AvaliacaoController as ctrl">
-                <h1 id="mensagem" ng-if="ctrl.form.submetido">{{ctrl.form.mensagem}}</h1>
+                <h1 id="mensagem" class="titulo" ng-if="ctrl.form.submetido">{{ctrl.form.mensagem}}</h1>
                 <form name="formulario" ng-submit="ctrl.submeter()" novalidate ng-if="!ctrl.form.submetido">
                     <h1 class="titulo">Avaliação do Candidato</h1>
                     <fieldset>

@@ -1,6 +1,7 @@
 #!/bin/bash
 cd frontend/
 npm install
+mkdir -p backend/src/main/resources/static/
 cp -R bower_components/ backend/src/main/resources/static/
 cp -R src/ ../backend/src/main/resources/static/
 cp index.html ../backend/src/main/resources/static/

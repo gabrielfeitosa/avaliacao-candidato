@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Sistema de avaliação do candidato",
   "devDependencies": {
-    "bower": "^1.8.0"
+    "bower": "^1.8.0",
+    "protractor": "^5.1.1"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && webdriver-manager update",
     "test": "protractor e2e-test/conf.js"
   },
   "author": "Gabriel Feitosa <gabfeitosa@gmail.com>",

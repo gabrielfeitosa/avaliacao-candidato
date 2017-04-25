@@ -1,10 +1,8 @@
-target/
-node_modules/
-application-dev.properties
-### IntelliJ IDEA ###
-.idea
-*.iws
+.idea/
 *.iml
-*.ipr
+target/
+static/
+bower_components/
+node_modules/
 
 

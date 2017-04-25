@@ -10,16 +10,27 @@
     <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="src/css/style.css" rel="stylesheet">
+
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+</style>
 </head>
 
-<body>
+<body ng-cloak>
 
 <div class="container">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="painel" ng-controller="AvaliacaoController as ctrl">
-                <h1 id="mensagem" class="titulo" ng-if="ctrl.form.submetido">{{ctrl.form.mensagem}}</h1>
+
+                <div class="text-center" ng-if="ctrl.form.submetido">
+                    <h1 id="mensagem" class="titulo" >{{ctrl.form.mensagem}}</h1>
+                    <img src="src/images/joinha.gif">
+                </div>
+    
                 <form name="formulario" ng-submit="ctrl.submeter()" novalidate ng-if="!ctrl.form.submetido">
                     <h1 class="titulo">Avaliação do Candidato</h1>
                     <fieldset>

@@ -1,0 +1,14 @@
+{
+  "name": "avaliacao",
+  "version": "1.0.0",
+  "description": "Sistema de avaliação do candidato",
+  "devDependencies": {
+    "bower": "^1.8.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "protractor e2e-test/conf.js"
+  },
+  "author": "Gabriel Feitosa <gabfeitosa@gmail.com>",
+  "license": "MIT"
+}

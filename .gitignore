@@ -1,5 +1,5 @@
 target/
-!.mvn/wrapper/maven-wrapper.jar
+node_modules/
 application-dev.properties
 ### IntelliJ IDEA ###
 .idea

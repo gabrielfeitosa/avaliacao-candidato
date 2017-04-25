@@ -1,0 +1,24 @@
+{
+  "name": "avaliacao",
+  "description": "Sistema de avaliação do candidato",
+  "authors": [
+    "Gabriel Feitosa <gabfeitosa@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gabrielfeitosa/avaliacao-candidato",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.5.0",
+    "angular-messages": "^1.6.4",
+    "angular-mocks": "^1.6.4",
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "jasmine-core": "jasmine#^2.5.2"
+  }
+}

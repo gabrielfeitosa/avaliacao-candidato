@@ -1,0 +1,22 @@
+<fieldset>
+    <legend>Avalie seu conhecimento de 0 a 10 nos seguintes itens</legend>
+    <div class="alert alert-danger" role="alert" ng-show="$ctrl.error">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Não foi possível carregar os skills!
+    </div>
+    <div class="form-group" ng-repeat="skill in $ctrl.skills" ng-show="!$ctrl.error">
+        <label class="col-md-3 col-sm-3 control-label">
+            {{skill.tipo}}
+        </label>
+        <div class="col-md-9 col-sm-9">
+            <span id="rating-{{skill.tipo}}" uib-rating ng-model="skill.grauConhecimento" max="$ctrl.ratings.max"
+                  class="form-control no-border"
+                  ng-class="skill.color"
+                  titles="$ctrl.ratings.titles"
+                  on-hover="$ctrl.ratings.onHover(skill, value)"
+                  on-leave="$ctrl.ratings.onLeaver(skill)" aria-labelledby="default-rating"></span>
+        </div>
+    </div>
+</fieldset>
+

@@ -3,5 +3,5 @@ services:
 
 script:
   - la -la
-  - docker build
+  - docker build -f Dockerfile.build .
 

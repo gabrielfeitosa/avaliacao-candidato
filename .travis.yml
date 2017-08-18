@@ -1,0 +1,7 @@
+services:
+  - docker
+
+script:
+  - la -la
+  - docker build
+

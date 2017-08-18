@@ -1,0 +1,20 @@
+FROM node:6.10.1-alpine as frontend
+WORKDIR /app
+COPY frontend .
+RUN apk update 
+RUN apk add git 
+RUN npm install --unsafe-perm
+
+FROM maven:3.5-jdk-8-alpine as backend
+WORKDIR /app
+COPY backend .
+RUN mkdir /app/src/main/resources/static/
+COPY --from=frontend /app/bower_components/ /app/src/main/resources/static/bower_components/
+COPY --from=frontend /app/src/ /app/src/main/resources/static/src/
+COPY --from=frontend /app/index.html /app/src/main/resources/static/index.html
+RUN mvn install
+
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY --from=backend /app/target/*.jar /app/app.jar
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar"]

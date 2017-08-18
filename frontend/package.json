@@ -7,7 +7,7 @@
     "protractor": "^5.1.1"
   },
   "scripts": {
-    "postinstall": "bower install && webdriver-manager update",
+    "postinstall": "bower install --allow-root && webdriver-manager update",
     "test": "protractor e2e-test/conf.js"
   },
   "author": "Gabriel Feitosa <gabfeitosa@gmail.com>",

@@ -8,7 +8,7 @@ var FormularioPage = function () {
     var self = this;
 
     self.navigateTo = function () {
-        browser.get('http://localhost:8080/');
+        browser.get('http://webe2e:8080/');
     };
 
     self.getElementMensagemErro = function (campo, tipo) {

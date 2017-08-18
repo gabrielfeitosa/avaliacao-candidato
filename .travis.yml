@@ -10,5 +10,6 @@ before_install:
 script:
   - ls -lah
   - docker build -t gabrielfeitosa/avaliacao -f Dockerfile.build .
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push gabrielfeitosa/avaliacao
 

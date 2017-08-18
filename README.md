@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gabrielfeitosa/avaliacao-candidato.svg?branch=master)](https://travis-ci.org/gabrielfeitosa/avaliacao-candidato)
+
 # Sistema de Avaliação do Candidato
 
 Sistema de exemplo para estudo

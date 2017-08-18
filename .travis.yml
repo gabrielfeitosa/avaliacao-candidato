@@ -2,6 +2,6 @@ services:
   - docker
 
 script:
-  - la -la
+  - ls -la
   - docker build -f Dockerfile.build .
 

@@ -16,7 +16,7 @@ describe('>> Avaliação do Candidato', function () {
             page.setNome('Teste');
             page.setNome();
             expect(element.isDisplayed()).toBeTruthy();
-            expect(element.getText()).toEqual('Camp obrigatório');
+            expect(element.getText()).toEqual('Campo obrigatório');
             expect(page.getBotaoSubmit().isEnabled()).toBeFalsy();
         });
 

@@ -1,0 +1,4 @@
+*/node_modules
+*/bower_components
+*/target
+backend/src/main/resources/static

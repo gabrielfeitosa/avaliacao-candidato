@@ -10,6 +10,8 @@ before_install:
 script:
   - ls -lah
   - docker build -t gabrielfeitosa/avaliacao -f Dockerfile.build .
+  - docker run --name webe2e -d gabrielfeitosa/avaliacao
+  - docker run -it --privileged --rm --link webe2e:webe2e -v $(pwd):/protractor --entrypoint=/bin/bash webnicer/protractor-headless -c "npm install && /protractor.sh e2e-test/conf.js"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push gabrielfeitosa/avaliacao
 

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  
+  webe2e:
+    image: avaliacao-candidato:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+
+  protractor:
+    image: webnicer/protractor-headless
+    privileged: true
+    volumes:
+      - ./frontend:/protractor
+    command: ["-c","npm install && /protractor.sh e2e-test/conf.js"]
+    entrypoint: ["/bin/bash"]
+    depends_on:
+      - webe2e
+    
